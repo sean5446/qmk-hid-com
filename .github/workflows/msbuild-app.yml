@@ -14,25 +14,21 @@ jobs:
     steps:
     - uses: actions/checkout@v3
       name: Checkout Code
-     
+
     - name: Setup MSBuild Path
       uses: microsoft/setup-msbuild@v1.1
-       
+
     - name: Setup NuGet
       uses: NuGet/setup-nuget@v1.0.6
-     
+
     - name: Restore NuGet Packages
       run: nuget restore HidCom.sln
- 
+
     - name: Build and Publish App
       run: msbuild HidCom.sln /p:Configuration=Release /p:DeployOnBuild=true /p:PublishProfile=FolderProfile
- 
-    - run: dir
-    - run: zip --help
-    - run: tar -czf bin.gz.tar bin\Release
 
     - name: Upload Artifact
       uses: actions/upload-artifact@v3
       with:
         name: hid-com
-        path: bin\Release\*.exe
+        path: HidCom\bin\Release\
