@@ -24,11 +24,11 @@ jobs:
     - name: Restore NuGet Packages
       run: nuget restore HidCom.sln
  
-    - name: Build and Publish Web App
+    - name: Build and Publish App
       run: msbuild HidCom.sln /p:Configuration=Release /p:DeployOnBuild=true /p:PublishProfile=FolderProfile
  
     - name: Upload Artifact
       uses: actions/upload-artifact@v3
       with:
         name: hid-com
-        path: bin\Release\Publish
+        path: bin\Release
