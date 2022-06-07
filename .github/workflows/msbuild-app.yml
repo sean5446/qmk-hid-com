@@ -27,10 +27,10 @@ jobs:
     - name: Build and Publish App
       run: msbuild HidCom.sln /p:Configuration=Release /p:DeployOnBuild=true /p:PublishProfile=FolderProfile
  
-    - run: dir bin
-    - run: dir bin\Release
-    - run: zip --help
-    - run: tar -czf bin.gz.tar bin\Release
+    - name: debug
+      run: dir
+      run: zip --help
+      run: tar -czf bin.gz.tar bin\Release
 
     - name: Upload Artifact
       uses: actions/upload-artifact@v3
