@@ -1,12 +1,23 @@
 # qmk-hid-com
-A user-space application to communicate with QMK firmware as a HID device
+
+## Overview
+A simple, small, user-space application to communicate with QMK firmware as a HID device
 
 ## Background
-- Proof of concept for communication between C# application and QMK firmware
+- Motivation: other solutions require python or nodejs installations (that do not come pre-installed on Windows), large dependencies (~10-100's of MB) to communicate with QMK
 
-- Prints CPU and memory utilization on SSD1306 OLED (4 lines/rows, 21 characters/columns)
+- This is a proof-of-concept for communication between C# application and QMK firmware
+
+- I used an STM32 blackpill board (STM32F411CEU6) for this project
+
+- In this example, the app prints CPU and memory utilization on SSD1306 OLED (4 lines/rows, 21 characters/columns)
 
 - Uses https://github.com/mikeobrien/HidLibrary for discovering HID devices and sending data
+
+<p>
+  <img src=".github/display.png" height="300px">
+</p>
+Pictured above: filling the screen with data
 
 ## Method
 
